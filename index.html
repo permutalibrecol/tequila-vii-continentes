@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tequila VII Continentes | Agave Azul Ancestral</title>
-    <meta name="description" content="Tequila VII Continentes: El legado del agave azul de Jalisco. Elaboración ancestral en Blanco, Reposado y Añejo.">
+    <meta name="description" content="Tequila VII Continentes: El legado del agave azul de Jalisco. Blanco, Reposado y Añejo.">
     <style>
         :root {
             --bg-deep: #030406;
@@ -14,6 +15,7 @@
             --gold-dark: #aa8c2c;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
+            --red-alert: #dc2626;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -35,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* MODAL BANNER +18 */
+        /* MODAL BANNER VERIFICACIÓN DE EDAD (+18) */
         #age-gate {
             position: fixed;
             top: 0;
@@ -70,8 +72,8 @@
         }
 
         .age-card svg {
-            width: 80px;
-            height: 80px;
+            width: 180px;
+            height: auto;
             margin-bottom: 20px;
         }
 
@@ -133,7 +135,7 @@
             color: #ef4444;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION CON NUEVO LOGO CON BRÚJULAS */
         header.hero {
             position: relative;
             height: 100vh;
@@ -150,8 +152,9 @@
 
         .logo-container {
             margin-bottom: 25px;
-            width: 150px;
-            height: 150px;
+            width: 280px;
+            max-width: 85vw;
+            height: auto;
             animation: fadeInDown 1.2s ease-out;
             filter: drop-shadow(0 8px 25px rgba(212, 175, 55, 0.45));
         }
@@ -274,6 +277,7 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .product-card:hover {
@@ -282,12 +286,40 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
         }
 
+        /* ESTILO PARA PRODUCTO AGOTADO (OUT OF STOCK) */
+        .product-card.out-of-stock {
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .product-card.out-of-stock .product-img-wrapper img {
+            filter: grayscale(40%) opacity(0.75);
+        }
+
+        .badge-out-of-stock {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--red-alert);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+            z-index: 10;
+        }
+
         .product-img-wrapper {
-            height: 360px;
+            height: 380px;
             width: 100%;
             overflow: hidden;
             position: relative;
             background: #030406;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .product-img-wrapper img {
@@ -370,7 +402,8 @@
     <!-- MODAL BANNER +18 -->
     <div id="age-gate">
         <div class="age-card">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- LOGOTIPO VECTORIAL CON BRÚJULAS EN MODAL -->
+            <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="gateGold" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#fff1bc" />
@@ -378,13 +411,25 @@
                         <stop offset="100%" stop-color="#aa8c2c" />
                     </linearGradient>
                 </defs>
-                <polygon points="70,15 130,15 185,70 185,130 130,185 70,185 15,130 15,70" fill="none" stroke="url(#gateGold)" stroke-width="1.5" opacity="0.6"/>
-                <g transform="translate(0, -2)">
-                    <path d="M 52 65 L 72 125 L 85 125 L 67 65 Z" fill="url(#gateGold)"/>
-                    <path d="M 73 65 L 93 125 L 106 125 L 88 65 Z" fill="url(#gateGold)" opacity="0.9"/>
-                    <rect x="115" y="65" width="8" height="60" rx="1" fill="url(#gateGold)"/>
-                    <rect x="129" y="65" width="8" height="60" rx="1" fill="url(#gateGold)"/>
+                <!-- BRÚJULA IZQUIERDA -->
+                <g transform="translate(25, 35)">
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="url(#gateGold)" stroke-width="1.2"/>
+                    <path d="M 0 -18 L 3 -3 L 18 0 L 3 3 L 0 18 L -3 3 L -18 0 L -3 -3 Z" fill="url(#gateGold)"/>
                 </g>
+                <!-- MONOGRAMA CENTRAL VII -->
+                <g transform="translate(150, 35)">
+                    <path d="M -45 -25 L -22 30 L -8 30 L -30 -25 Z" fill="url(#gateGold)"/>
+                    <rect x="-2" y="-25" width="16" height="55" rx="3" fill="url(#gateGold)"/>
+                    <rect x="20" y="-25" width="16" height="55" rx="3" fill="url(#gateGold)"/>
+                </g>
+                <!-- BRÚJULA DERECHA -->
+                <g transform="translate(275, 35)">
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="url(#gateGold)" stroke-width="1.2"/>
+                    <path d="M 0 -18 L 3 -3 L 18 0 L 3 3 L 0 18 L -3 3 L -18 0 L -3 -3 Z" fill="url(#gateGold)"/>
+                </g>
+                <!-- BANNER CONTINENTES -->
+                <rect x="25" y="80" width="250" height="36" rx="8" fill="#030406" stroke="url(#gateGold)" stroke-width="2"/>
+                <text x="150" y="104" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="url(#gateGold)" letter-spacing="5" text-anchor="middle">CONTINENTES</text>
             </svg>
             <h2>Verificación de Edad</h2>
             <p>Bienvenido a Tequila VII Continentes. Debes tener al menos 18 años de edad para ingresar a este sitio y conocer nuestro legado.</p>
@@ -395,10 +440,10 @@
         </div>
     </div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION CON NUEVO LOGO CON BRÚJULAS -->
     <header class="hero">
         <div class="logo-container">
-            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 300 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#fff1bc" />
@@ -407,17 +452,25 @@
                         <stop offset="100%" stop-color="#655212" />
                     </linearGradient>
                 </defs>
-                <polygon points="70,15 130,15 185,70 185,130 130,185 70,185 15,130 15,70" fill="none" stroke="url(#luxuryGold)" stroke-width="1.5" opacity="0.5"/>
-                <circle cx="100" cy="100" r="88" fill="none" stroke="url(#luxuryGold)" stroke-width="0.75" opacity="0.3"/>
-                <g transform="translate(0, -2)">
-                    <path d="M 52 65 L 72 125 L 85 125 L 67 65 Z" fill="url(#luxuryGold)"/>
-                    <path d="M 73 65 L 93 125 L 106 125 L 88 65 Z" fill="url(#luxuryGold)" opacity="0.9"/>
-                    <rect x="115" y="65" width="8" height="60" rx="1" fill="url(#luxuryGold)"/>
-                    <rect x="129" y="65" width="8" height="60" rx="1" fill="url(#luxuryGold)"/>
+                <!-- BRÚJULA IZQUIERDA -->
+                <g transform="translate(25, 35)">
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="url(#luxuryGold)" stroke-width="1.2"/>
+                    <path d="M 0 -18 L 3 -3 L 18 0 L 3 3 L 0 18 L -3 3 L -18 0 L -3 -3 Z" fill="url(#luxuryGold)"/>
                 </g>
-                <line x1="60" y1="142" x2="140" y2="142" stroke="url(#luxuryGold)" stroke-width="1.5" stroke-linecap="round"/>
-                <text x="100" y="163" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="url(#luxuryGold)" letter-spacing="4.5" text-anchor="middle">VII CONTINENTES</text>
-                <text x="100" y="177" font-family="system-ui, sans-serif" font-size="7" font-weight="400" fill="#9ca3af" letter-spacing="3" text-anchor="middle">JALISCO • MÉXICO</text>
+                <!-- MONOGRAMA CENTRAL VII -->
+                <g transform="translate(150, 35)">
+                    <path d="M -45 -25 L -22 30 L -8 30 L -30 -25 Z" fill="url(#luxuryGold)"/>
+                    <rect x="-2" y="-25" width="16" height="55" rx="3" fill="url(#luxuryGold)"/>
+                    <rect x="20" y="-25" width="16" height="55" rx="3" fill="url(#luxuryGold)"/>
+                </g>
+                <!-- BRÚJULA DERECHA -->
+                <g transform="translate(275, 35)">
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="url(#luxuryGold)" stroke-width="1.2"/>
+                    <path d="M 0 -18 L 3 -3 L 18 0 L 3 3 L 0 18 L -3 3 L -18 0 L -3 -3 Z" fill="url(#luxuryGold)"/>
+                </g>
+                <!-- BANNER CONTINENTES -->
+                <rect x="25" y="80" width="250" height="36" rx="8" fill="#030406" stroke="url(#luxuryGold)" stroke-width="2"/>
+                <text x="150" y="104" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="url(#luxuryGold)" letter-spacing="5" text-anchor="middle">CONTINENTES</text>
             </svg>
         </div>
         <h1>Tequila VII Continentes</h1>
@@ -433,7 +486,6 @@
             <p>Cada piña de agave azul madura bajo su cuidado paciente durante años, absorbiendo los minerales esenciales que otorgan a <strong>VII Continentes</strong> ese carácter único, profundo e inconfundible. Un tributo líquido al sacrificio de nuestros abuelos.</p>
         </div>
         <div class="story-img-container">
-            <!-- FOTO REAL DE CULTIVOS DE AGAVE AZUL EN JALISCO -->
             <img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=1000&auto=format&fit=crop" alt="Cultivos de Agave Azul en Jalisco" loading="lazy">
         </div>
     </section>
@@ -446,7 +498,7 @@
             <!-- 1. BLANCO -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_6067208725409281959.Webp" alt="Tequila VII Continentes Blanco en Caja de Lujo" loading="lazy">
+                    <img src="watermarked_img_6067208725409281959.Webp" alt="Tequila VII Continentes Blanco" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
@@ -461,7 +513,7 @@
             <!-- 2. REPOSADO -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_4916526226724297730.webp" alt="Tequila VII Continentes Reposado en Caja de Lujo" loading="lazy">
+                    <img src="watermarked_img_4916526226724297730.webp" alt="Tequila VII Continentes Reposado" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
@@ -473,18 +525,19 @@
                 </div>
             </article>
 
-            <!-- 3. AÑEJO -->
-            <article class="product-card">
+            <!-- 3. AÑEJO (OUT OF STOCK) -->
+            <article class="product-card out-of-stock">
+                <span class="badge-out-of-stock">Out of Stock</span>
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_7456770876194698471.Webp" alt="Tequila VII Continentes Añejo en Caja de Lujo" loading="lazy">
+                    <img src="watermarked_img_7456770876194698471.Webp" alt="Tequila VII Continentes Añejo - Agotado" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
-                        <span class="badge">Legado y Maestría</span>
-                        <h3 style="margin-top: 12px;">Añejo</h3>
-                        <p>Añejado por más de 12 meses. Notas profundas de chocolate amargo, frutos secos y especias finas con un paso en boca extraordinariamente sedoso.</p>
+                        <span class="badge" style="border-color: rgba(220, 38, 38, 0.4); color: #fca5a5;">Edición Limitada • Reserva Especial</span>
+                        <h3 style="margin-top: 12px; opacity: 0.7;">Añejo</h3>
+                        <p>Añejado por más de 12 meses. Notas profundas de chocolate amargo, frutos secos y especias finas. Tierra, fuego, madera y tiempo transforman con majestuosa sabiduría al agave.</p>
                     </div>
-                    <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">40% Alc. Vol.</span>
+                    <span style="color: var(--red-alert); font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;">Agotado Temporalmente</span>
                 </div>
             </article>
         </div>
@@ -496,7 +549,7 @@
         <p class="legal">El consumo de alcohol es perjudicial para la salud. Prohíbase el expendio a menores de edad.</p>
     </footer>
 
-    <!-- CONTROL DE VERIFICACIÓN DE EDAD -->
+    <!-- SCRIPT DE CONTROL DE VERIFICACIÓN DE EDAD -->
     <script>
         function acceptAge() {
             localStorage.setItem('vii_age_verified', 'true');
@@ -516,3 +569,4 @@
     </script>
 </body>
 </html>
+
