@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tequila VII Continentes | Agave Azul Ancestral</title>
+    <meta name="description" content="Tequila VII Continentes: El legado del agave azul en Jalisco, llevado a los 7 rincones del mundo. Descubre Blanco, Reposado y Añejo.">
+    <style>
+        :root {
+            --bg-deep: #06080d;
+            --bg-card: #0f1522;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa8c2c;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section con Imagen de Fondo y Gradiente de Alta Gama */
+        header.hero {
+            position: relative;
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(180deg, rgba(6,8,13,0.4) 0%, rgba(6,8,13,0.85) 80%, var(--bg-deep) 100%), 
+                        url('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        /* Logotipo Vectorial Exclusivo en Código Puro */
+        .brand-svg {
+            width: 110px;
+            height: 110px;
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4));
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero p.tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 14px 38px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--bg-deep);
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        /* Sección de Historia y Raíces */
+        section.story {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        section.story h2 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        section.story p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Catálogo de Presentaciones (Grid) */
+        section.catalog {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 120px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold-light);
+            margin-bottom: 60px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .grid-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .product-img-wrapper {
+            height: 280px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+        }
+
+        /* Footer Exclusivo */
+        footer {
+            background-color: #030406;
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        footer p.legal {
+            margin-top: 10px;
+            color: #4b5563;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="logo-container">
+            <!-- LOGOTIPO VECTORIAL DISEÑADO EN PURO SVG (Agave Estilizado + Corona VII) -->
+            <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" stroke="#d4af37" stroke-width="2" stroke-dasharray="4 2"/>
+                <path d="M50 15L58 35H78L62 48L68 68L50 55L32 68L38 48L22 35H42L50 15Z" fill="#d4af37" fill-opacity="0.15" stroke="#d4af37" stroke-width="2"/>
+                <path d="M50 25C40 45 35 65 35 75C35 80 40 85 50 85C60 85 65 80 65 75C65 65 60 45 50 25Z" fill="#d4af37" fill-opacity="0.8"/>
+                <path d="M50 35C44 50 40 65 40 73C40 77 44 80 50 80" stroke="#06080d" stroke-width="2"/>
+            </svg>
+        </div>
+        <h1>Tequila VII Continentes</h1>
+        <p class="tagline">El Latido de Jalisco en Cada Gota</p>
+        <a href="#coleccion" class="btn-gold">Explorar Colección</a>
+    </header>
+
+    <!-- SECCIÓN DE HISTORIA Y RAÍCES -->
+    <section class="story">
+        <h2>Tradición Forjada en la Tierra</h2>
+        <p>En el corazón de los valles jaliscienses, donde la tierra roja nutre con paciencia milenaria al auténtico agave azul <em>Weber</em>, nace un destilado sin concesiones. Cada piña es seleccionada a mano en su punto exacto de maduración por manos campesinas que llevan el arte del tequila en la sangre.</p>
+        <p><strong>VII Continentes</strong> no es solo una bebida; es el testimonio líquido de un legado familiar que trasciende fronteras, llevando la pureza, el carácter y la sofisticación mexicana a los paladares más exigentes de todo el planeta.</p>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS (3 PRESENTACIONES) -->
+    <section class="catalog" id="coleccion">
+        <h2 class="section-title">Nuestras Tres Expresiones</h2>
+        
+        <div class="grid-products">
+            <!-- BLANCO -->
+            <article class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop" alt="Tequila VII Continentes Blanco" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <span class="badge">Pureza Absoluta</span>
+                        <h3 style="margin-top: 12px;">Blanco</h3>
+                        <p>Sin barrica. Transparente, cristalino y vibrante. Notas herbáceas intensas, cítricos frescos y el dulzor puro del agave cocido al horno de mampostería.</p>
+                    </div>
+                    <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">40% Alc. Vol.</span>
+                </div>
+            </article>
+
+            <!-- REPOSADO -->
+            <article class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?q=80&w=800&auto=format&fit=crop" alt="Tequila VII Continentes Reposado" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <span class="badge">Maduración Selecta</span>
+                        <h3 style="margin-top: 12px;">Reposado</h3>
+                        <p>Descansado en barricas de roble blanco americano. Un equilibrio magistral donde la vainilla sutil y el caramelo ligero abrazan la robustez del agave.</p>
+                    </div>
+                    <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">40% Alc. Vol.</span>
+                </div>
+            </article>
+
+            <!-- AÑEJO -->
+            <article class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=800&auto=format&fit=crop" alt="Tequila VII Continentes Añejo" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <span class="badge">Legado y Maestría</span>
+                        <h3 style="margin-top: 12px;">Añejo</h3>
+                        <p>Añejado pacientemente durante más de 12 meses. Notas profundas de madera tostada, chocolate amargo, frutos secos y un final en boca extraordinariamente sedoso.</p>
+                    </div>
+                    <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">40% Alc. Vol.</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Tequila VII Continentes Colombia S.A.S. Todos los derechos reservados.</p>
+        <p class="legal">El consumo de alcohol es perjudicial para la salud. Prohíbase el expendio de bebidas embriagantes a menores de edad.</p>
+    </footer>
+
+</body>
+</html>
