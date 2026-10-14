@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tequila VII Continentes | Agave Azul Ancestral</title>
-    <meta name="description" content="Tequila VII Continentes: El legado del agave azul en Jalisco. Blanco, Reposado y Añejo.">
+    <meta name="description" content="Tequila VII Continentes: El legado del agave azul de Jalisco. Elaboración ancestral en Blanco, Reposado y Añejo.">
     <style>
         :root {
             --bg-deep: #030406;
-            --bg-card: #0c1017;
+            --bg-card: #090c12;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --gold-dark: #aa8c2c;
@@ -36,7 +35,105 @@
             overflow-x: hidden;
         }
 
-        /* HERO SECTION */
+        /* MODAL / BANNER DE VERIFICACIÓN DE EDAD (+18) */
+        #age-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(3, 4, 6, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #age-gate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .age-card {
+            background-color: #080c14;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .age-card svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .age-card h2 {
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .age-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .age-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-age-yes {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--bg-deep);
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+
+        .btn-age-yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        .btn-age-no {
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid #374151;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .btn-age-no:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* HERO SECTION CON DESTELLO DORADO Y CONTRASTE DE LUJO */
         header.hero {
             position: relative;
             height: 100vh;
@@ -47,8 +144,8 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(180deg, rgba(3,4,6,0.3) 0%, rgba(3,4,6,0.85) 80%, var(--bg-deep) 100%), 
-                        url('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.12) 0%, rgba(3, 4, 6, 0.98) 70%),
+                        linear-gradient(180deg, #030406 0%, #080c14 100%);
         }
 
         .logo-container {
@@ -56,13 +153,13 @@
             width: 150px;
             height: 150px;
             animation: fadeInDown 1.2s ease-out;
-            filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.4));
+            filter: drop-shadow(0 8px 25px rgba(212, 175, 55, 0.45));
         }
 
         h1 {
             font-size: clamp(2.2rem, 4.5vw, 4rem);
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             color: var(--gold-light);
             text-transform: uppercase;
             margin-bottom: 12px;
@@ -99,7 +196,7 @@
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
 
-        /* SECCIÓN DE HISTORIA Y RAÍCES */
+        /* HISTORIA Y RAÍCES ANCESTRALES */
         section.story {
             max-width: 1100px;
             margin: 0 auto;
@@ -130,7 +227,7 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
         .story-img-container img {
@@ -146,7 +243,7 @@
             transform: scale(1.04);
         }
 
-        /* CATÁLOGO DE PRODUCTOS (3 PRESENTACIONES CON SVG PROPIO) */
+        /* CATÁLOGO DE TRES PRESENTACIONES */
         section.catalog {
             max-width: 1200px;
             margin: 0 auto;
@@ -182,28 +279,26 @@
         .product-card:hover {
             transform: translateY(-8px);
             border-color: var(--gold);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
         }
 
         .product-img-wrapper {
-            height: 320px;
+            height: 360px;
             width: 100%;
-            background: radial-gradient(circle at center, #111827 0%, #030406 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+            position: relative;
+            background: #030406;
         }
 
-        .product-img-wrapper svg {
-            max-height: 280px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
-            transition: transform 0.5s ease;
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .product-card:hover .product-img-wrapper svg {
-            transform: scale(1.05);
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.06);
         }
 
         .product-info {
@@ -272,10 +367,39 @@
 </head>
 <body>
 
+    <!-- MODAL BANNER +18 -->
+    <div id="age-gate">
+        <div class="age-card">
+            <!-- MONOGRAMA VII EN EL MODAL -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="gateGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff1bc" />
+                        <stop offset="50%" stop-color="#d4af37" />
+                        <stop offset="100%" stop-color="#aa8c2c" />
+                    </linearGradient>
+                </defs>
+                <polygon points="70,15 130,15 185,70 185,130 130,185 70,185 15,130 15,70" fill="none" stroke="url(#gateGold)" stroke-width="1.5" opacity="0.6"/>
+                <g transform="translate(0, -2)">
+                    <path d="M 52 65 L 72 125 L 85 125 L 67 65 Z" fill="url(#gateGold)"/>
+                    <path d="M 73 65 L 93 125 L 106 125 L 88 65 Z" fill="url(#gateGold)" opacity="0.9"/>
+                    <rect x="115" y="65" width="8" height="60" rx="1" fill="url(#gateGold)"/>
+                    <rect x="129" y="65" width="8" height="60" rx="1" fill="url(#gateGold)"/>
+                </g>
+            </svg>
+            <h2>Verificación de Edad</h2>
+            <p>Bienvenido a Tequila VII Continentes. Debes tener al menos 18 años de edad para ingresar a este sitio y conocer nuestro legado.</p>
+            <div class="age-buttons">
+                <button class="btn-age-yes" onclick="acceptAge()">Soy Mayor de 18 Años</button>
+                <button class="btn-age-no" onclick="rejectAge()">Salir</button>
+            </div>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="logo-container">
-            <!-- LOGOTIPO VECTORIAL OFICIAL (MONOGRAMA VII) -->
+            <!-- LOGOTIPO VECTORIAL DEFINITIVO VII CONTINENTES -->
             <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -303,7 +427,7 @@
         <a href="#coleccion" class="btn-gold">Descubrir Colección</a>
     </header>
 
-    <!-- SECCIÓN DE HISTORIA Y PLANTACIÓN ANCESTRAL -->
+    <!-- HISTORIA Y PLANTACIÓN ANCESTRAL -->
     <section class="story">
         <div class="story-text">
             <h2>Labrado con Esfuerzo en la Tierra Roja de Jalisco</h2>
@@ -315,44 +439,15 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO DE PRODUCTOS CON BOTELLAS Y CAJAS DISEÑADAS EN SVG -->
+    <!-- CATÁLOGO CON IMÁGENES HIPERREALISTAS GENERADAS -->
     <section class="catalog" id="coleccion">
         <h2 class="section-title">Nuestras Tres Expresiones</h2>
         
         <div class="grid-products">
-            
-            <!-- 1. BLANCO (MOCKUP SVG BOTELLA + CAJA) -->
+            <!-- 1. BLANCO -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <svg viewBox="0 0 200 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#161e2e" />
-                                <stop offset="100%" stop-color="#0b0f19" />
-                            </linearGradient>
-                            <linearGradient id="blancoLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
-                                <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0.4"/>
-                            </linearGradient>
-                            <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#f3e5ab" />
-                                <stop offset="50%" stop-color="#d4af37" />
-                                <stop offset="100%" stop-color="#aa8c2c" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Caja de presentación de lujo abierta/fondo -->
-                        <path d="M 40 40 L 90 20 L 160 40 L 160 280 L 40 280 Z" fill="url(#boxGrad)" stroke="#d4af37" stroke-width="1" stroke-opacity="0.3"/>
-                        <!-- Silueta de Botella Tipo Vino (Blanco) -->
-                        <path d="M 92 65 L 108 65 L 108 95 C 125 105 135 125 135 160 L 135 255 C 135 263 128 270 120 270 L 80 270 C 72 270 65 263 65 255 L 65 160 C 65 125 75 105 92 95 Z" fill="rgba(255,255,255,0.08)" stroke="url(#gold)" stroke-width="2"/>
-                        <!-- Líquido Blanco Cristalino -->
-                        <path d="M 68 150 L 132 150 L 132 255 C 132 261 127 267 120 267 L 80 267 C 73 267 68 261 68 255 Z" fill="url(#blancoLiquid)"/>
-                        <!-- Corcho / Tapa -->
-                        <rect x="92" y="48" width="16" height="17" rx="2" fill="url(#gold)"/>
-                        <!-- Etiqueta con Monograma Mini -->
-                        <rect x="80" y="165" width="40" height="55" rx="3" fill="#030406" stroke="url(#gold)" stroke-width="1.5"/>
-                        <circle cx="100" cy="192" r="16" fill="none" stroke="url(#gold)" stroke-width="0.8"/>
-                        <text x="100" y="196" font-family="serif" font-size="12" font-weight="bold" fill="url(#gold)" text-anchor="middle">VII</text>
-                    </svg>
+                    <img src="watermarked_img_6067208725409281959.jpg" alt="Tequila VII Continentes Blanco en Caja de Lujo" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
@@ -364,25 +459,10 @@
                 </div>
             </article>
 
-            <!-- 2. REPOSADO (MOCKUP SVG BOTELLA + CAJA) -->
+            <!-- 2. REPOSADO -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <svg viewBox="0 0 200 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="repoLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
-                                <stop offset="100%" stop-color="#d97706" stop-opacity="0.6"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M 40 40 L 90 20 L 160 40 L 160 280 L 40 280 Z" fill="url(#boxGrad)" stroke="#d4af37" stroke-width="1" stroke-opacity="0.3"/>
-                        <path d="M 92 65 L 108 65 L 108 95 C 125 105 135 125 135 160 L 135 255 C 135 263 128 270 120 270 L 80 270 C 72 270 65 263 65 255 L 65 160 C 65 125 75 105 92 95 Z" fill="rgba(255,255,255,0.08)" stroke="url(#gold)" stroke-width="2"/>
-                        <!-- Líquido Reposado Ámbar -->
-                        <path d="M 68 150 L 132 150 L 132 255 C 132 261 127 267 120 267 L 80 267 C 73 267 68 261 68 255 Z" fill="url(#repoLiquid)"/>
-                        <rect x="92" y="48" width="16" height="17" rx="2" fill="url(#gold)"/>
-                        <rect x="80" y="165" width="40" height="55" rx="3" fill="#030406" stroke="url(#gold)" stroke-width="1.5"/>
-                        <circle cx="100" cy="192" r="16" fill="none" stroke="url(#gold)" stroke-width="0.8"/>
-                        <text x="100" y="196" font-family="serif" font-size="12" font-weight="bold" fill="url(#gold)" text-anchor="middle">VII</text>
-                    </svg>
+                    <img src="watermarked_img_4916526226724297730.jpg" alt="Tequila VII Continentes Reposado en Caja de Lujo" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
@@ -394,25 +474,10 @@
                 </div>
             </article>
 
-            <!-- 3. AÑEJO (MOCKUP SVG BOTELLA + CAJA) -->
+            <!-- 3. AÑEJO -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <svg viewBox="0 0 200 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="anejoLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#b45309" stop-opacity="0.4"/>
-                                <stop offset="100%" stop-color="#78350f" stop-opacity="0.8"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M 40 40 L 90 20 L 160 40 L 160 280 L 40 280 Z" fill="url(#boxGrad)" stroke="#d4af37" stroke-width="1" stroke-opacity="0.3"/>
-                        <path d="M 92 65 L 108 65 L 108 95 C 125 105 135 125 135 160 L 135 255 C 135 263 128 270 120 270 L 80 270 C 72 270 65 263 65 255 L 65 160 C 65 125 75 105 92 95 Z" fill="rgba(255,255,255,0.08)" stroke="url(#gold)" stroke-width="2"/>
-                        <!-- Líquido Añejo Profundo -->
-                        <path d="M 68 150 L 132 150 L 132 255 C 132 261 127 267 120 267 L 80 267 C 73 267 68 261 68 255 Z" fill="url(#anejoLiquid)"/>
-                        <rect x="92" y="48" width="16" height="17" rx="2" fill="url(#gold)"/>
-                        <rect x="80" y="165" width="40" height="55" rx="3" fill="#030406" stroke="url(#gold)" stroke-width="1.5"/>
-                        <circle cx="100" cy="192" r="16" fill="none" stroke="url(#gold)" stroke-width="0.8"/>
-                        <text x="100" y="196" font-family="serif" font-size="12" font-weight="bold" fill="url(#gold)" text-anchor="middle">VII</text>
-                    </svg>
+                    <img src="watermarked_img_7456770876194698471.jpg" alt="Tequila VII Continentes Añejo en Caja de Lujo" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
@@ -423,7 +488,6 @@
                     <span style="color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">40% Alc. Vol.</span>
                 </div>
             </article>
-
         </div>
     </section>
 
@@ -433,6 +497,24 @@
         <p class="legal">El consumo de alcohol es perjudicial para la salud. Prohíbase el expendio a menores de edad.</p>
     </footer>
 
+    <!-- SCRIPT DE CONTROL DE VERIFICACIÓN DE EDAD -->
+    <script>
+        function acceptAge() {
+            localStorage.setItem('vii_age_verified', 'true');
+            document.getElementById('age-gate').classList.add('hidden');
+        }
+
+        function rejectAge() {
+            alert('Debes ser mayor de edad para ingresar a este sitio.');
+            window.location.href = 'https://www.google.com';
+        }
+
+        // Comprobar si ya se verificó anteriormente
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('vii_age_verified') === 'true') {
+                document.getElementById('age-gate').classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
-
