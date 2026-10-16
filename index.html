@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tequila VII Continentes | Agave Azul Weber • De México para el Mundo</title>
-    <meta name="description" content="Tequila VII Continentes: Ultra-Premium Agave Azul de Jalisco, México. De México para el mundo. Próximamente lanzamiento exclusivo en Colombia.">
+    <title>Tequila VII Continentes | Agave Azul Weber 100% • De México para el Mundo</title>
+    <meta name="description" content="Tequila VII Continentes: Ultra-Premium Agave Azul Weber de Jalisco, México 🇲🇽. Destilado artesanal de lujo. Expansión internacional en Colombia 🇨🇴 y Estados Unidos 🇺🇸.">
+    <meta name="keywords" content="Tequila, VII Continentes, Agave Azul Weber, Tequila Premium, Jalisco, Mexico, Colombia, Destilado de Lujo, Tequila Blanco, Tequila Reposado, Tequila Anejo">
+    <meta name="robots" content="index, follow">
     
+    <!-- Open Graph / Meta Etiquetas SEO Social -->
+    <meta property="og:title" content="Tequila VII Continentes | Ultra-Premium Agave Azul">
+    <meta property="og:description" content="El Legado Líquido de Nuestros Ancestros. De México 🇲🇽 para el Mundo 🌎. Próximamente en Colombia 🇨🇴.">
+    <meta property="og:image" content="7continentes_1">
+    <meta property="og:type" content="website">
+
     <!-- FAVICON ICONO NAVEGADOR (NUEVO LOGO VII CON BRÚJULAS) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23030406'/><path d='M20 25 L38 75 L48 75 L30 25 Z' fill='%23d4af37'/><rect x='52' y='25' width='12' height='50' rx='2' fill='%23d4af37'/><rect x='68' y='25' width='12' height='50' rx='2' fill='%23d4af37'/></svg>">
+
+    <!-- SEO Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Brand",
+      "name": "Tequila VII Continentes",
+      "url": "https://viicontinentes.com",
+      "logo": "https://viicontinentes.com/7continentes_1",
+      "description": "Tequila Ultra-Premium 100% Agave Azul Weber producido en Jalisco, México.",
+      "sameAs": [
+        "https://viicontinentes.store"
+      ]
+    }
+    </script>
 
     <style>
         :root {
             --bg-deep: #030406;
-            --bg-card: #090c12;
+            --bg-card: #080c14;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --gold-dark: #aa8c2c;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --red-alert: #dc2626;
-            --green-mex: #006847;
+            --green-whatsapp: #25d366;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -39,6 +62,58 @@
             color: var(--text-main);
             line-height: 1.8;
             overflow-x: hidden;
+        }
+
+        /* BARRA SUPERIOR MULTI-IDIOMA Y NAVEGACIÓN RESPONSIVA */
+        .top-lang-bar {
+            background: rgba(8, 12, 20, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .brand-mini-logo {
+            color: var(--gold-light);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--gold);
+            color: var(--bg-deep);
+            font-weight: 700;
+            border-color: var(--gold);
         }
 
         /* MODAL VERIFICACIÓN DE EDAD (+18) */
@@ -68,21 +143,21 @@
             background-color: #080c14;
             border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 40px 25px;
             max-width: 480px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95);
         }
 
         .age-card svg {
-            width: 200px;
+            width: 180px;
             height: auto;
             margin-bottom: 20px;
         }
 
         .age-card h2 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--gold-light);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -92,14 +167,15 @@
 
         .age-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
         }
 
         .age-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn-age-yes {
@@ -111,13 +187,12 @@
             border-radius: 50px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             transition: var(--transition);
         }
 
         .btn-age-yes:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
 
@@ -131,243 +206,225 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.85rem;
-            transition: var(--transition);
         }
 
-        .btn-age-no:hover {
-            border-color: #ef4444;
-            color: #ef4444;
-        }
-
-        /* HERO SECTION CON FOTO DE CAMPOS DE AGAVE Y TIERRA ROJA */
+        /* HERO SECTION RESPONSIVA */
         header.hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px 60px 20px;
+            padding: 80px 20px 60px 20px;
             background: linear-gradient(180deg, rgba(3, 4, 6, 0.75) 0%, rgba(3, 4, 6, 0.95) 100%),
                         url('https://thumbs.dreamstime.com/b/vista-de-un-campo-azul-del-agavo-121961532.jpg') center/cover no-repeat;
         }
 
         .logo-container {
             margin-bottom: 25px;
-            width: 320px;
+            width: 300px;
             max-width: 85vw;
             height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8));
         }
 
         .origin-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(8, 12, 20, 0.85);
             border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 8px 22px;
+            padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gold-light);
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         h1 {
-            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 300;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             color: var(--gold-light);
             text-transform: uppercase;
             margin-bottom: 15px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
         }
 
         .hero p.tagline {
-            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-size: clamp(0.95rem, 2vw, 1.25rem);
             color: #e5e7eb;
             max-width: 700px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 35px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero-actions {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .btn-gold {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 14px 35px;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: var(--bg-deep);
             font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
             transition: var(--transition);
         }
 
         .btn-gold:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.55);
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.45);
         }
 
         .btn-outline {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 14px 30px;
             background: transparent;
             color: var(--gold-light);
             border: 1px solid var(--gold);
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             border-radius: 50px;
             transition: var(--transition);
         }
 
         .btn-outline:hover {
             background: rgba(212, 175, 55, 0.15);
-            transform: translateY(-3px);
         }
 
-        /* SECCIÓN DE EXPANSIÓN Y PRESENCIA INTERNACIONAL */
+        /* EXPANSIÓN Y PRESENCIA INTERNACIONAL */
         section.expansion {
             background: linear-gradient(180deg, #080c14 0%, #030406 100%);
             border-top: 1px solid rgba(212, 175, 55, 0.2);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .expansion-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .country-card {
             background: rgba(9, 12, 18, 0.9);
             border: 1px solid rgba(212, 175, 55, 0.25);
             border-radius: 16px;
-            padding: 25px 35px;
-            flex: 1;
-            min-width: 280px;
+            padding: 22px 25px;
         }
 
         .country-card h3 {
             color: var(--gold);
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            letter-spacing: 1.5px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         .country-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        /* VALOR AGREGADO Y CULTIVO ANCESTRAL */
+        /* HISTORIA Y VALOR AGREGADO */
         section.story {
             max-width: 1150px;
             margin: 0 auto;
-            padding: 110px 20px;
+            padding: 90px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
             align-items: center;
         }
 
         .story-text h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
             color: var(--gold);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 350;
-            letter-spacing: 2px;
-            line-height: 1.3;
+            letter-spacing: 1.5px;
         }
 
         .story-text p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .value-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .value-item {
             border-left: 2px solid var(--gold);
-            padding-left: 15px;
+            padding-left: 12px;
         }
 
         .value-item h4 {
             color: var(--gold-light);
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
         }
 
         .value-item p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 0;
         }
 
         .story-img-container {
-            position: relative;
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
         .story-img-container img {
             width: 100%;
             height: 100%;
-            min-height: 420px;
+            min-height: 380px;
             object-fit: cover;
             display: block;
         }
 
-        /* CATÁLOGO DE TRES PRESENTACIONES */
+        /* CATÁLOGO DE PRESENTACIONES */
         section.catalog {
             max-width: 1250px;
             margin: 0 auto;
-            padding: 40px 20px 120px 20px;
+            padding: 40px 20px 100px 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             color: var(--gold-light);
-            margin-bottom: 60px;
-            letter-spacing: 3px;
+            margin-bottom: 50px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             font-weight: 300;
         }
 
         .grid-products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
 
         .product-card {
@@ -382,41 +439,34 @@
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
         }
 
-        /* PRODUCTO AGOTADO */
         .product-card.out-of-stock {
             border-color: rgba(220, 38, 38, 0.4);
         }
 
-        .product-card.out-of-stock .product-img-wrapper img {
-            filter: grayscale(35%) opacity(0.85);
-        }
-
         .badge-out-of-stock {
             position: absolute;
-            top: 18px;
-            right: 18px;
+            top: 15px;
+            right: 15px;
             background-color: var(--red-alert);
             color: #ffffff;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            padding: 8px 18px;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
             border-radius: 30px;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.6);
             z-index: 10;
         }
 
         .product-img-wrapper {
-            height: 400px;
+            height: 380px;
             width: 100%;
             overflow: hidden;
-            position: relative;
             background: #030406;
         }
 
@@ -428,11 +478,11 @@
         }
 
         .product-card:hover .product-img-wrapper img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -440,130 +490,90 @@
         }
 
         .product-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--gold);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            margin-bottom: 8px;
             font-weight: 400;
         }
 
         .product-meta {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gold-light);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
         .product-info p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
         .btn-buy {
             display: block;
             text-align: center;
-            padding: 12px 25px;
+            padding: 12px 20px;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: var(--bg-deep);
             font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             border-radius: 50px;
             transition: var(--transition);
         }
 
         .btn-buy:hover {
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
         }
 
         .btn-disabled {
             display: block;
             text-align: center;
-            padding: 12px 25px;
+            padding: 12px 20px;
             background: rgba(220, 38, 38, 0.15);
             color: #fca5a5;
             border: 1px solid rgba(220, 38, 38, 0.4);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             border-radius: 50px;
             cursor: not-allowed;
         }
 
-        /* PASARELAS DE PAGO SEGURO */
-        section.payment-gateways {
-            background: #080c14;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .payment-gateways h4 {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
-
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .pay-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 8px;
-            padding: 10px 20px;
-            color: var(--gold-light);
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* DIRECTIVA CORPORATIVA Y TARJETAS DIGITALES */
+        /* DIRECTIVA CORPORATIVA SIN QR */
         section.directors {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 80px 20px;
         }
 
         .directors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 30px;
         }
 
         .director-card {
             background: #080c14;
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.8);
         }
 
         .director-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #ffffff;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             font-weight: 600;
         }
 
         .director-title {
             color: var(--gold);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 4px;
         }
@@ -572,13 +582,12 @@
             color: var(--text-muted);
             font-size: 0.8rem;
             letter-spacing: 1px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .contact-info {
             border-top: 1px solid rgba(212, 175, 55, 0.15);
-            padding-top: 20px;
-            margin-bottom: 25px;
+            padding-top: 18px;
         }
 
         .contact-info a {
@@ -586,7 +595,7 @@
             text-decoration: none;
             display: block;
             margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
@@ -594,49 +603,85 @@
             color: var(--gold);
         }
 
-        .qr-wrapper {
+        /* BOTÓN FLOTANTE AMIGABLE DE WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--green-whatsapp);
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 12px 22px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            background: #ffffff;
-            padding: 12px;
-            border-radius: 12px;
-            width: 150px;
-            margin: 0 auto;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+            z-index: 9999;
+            transition: var(--transition);
         }
 
-        .qr-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .whatsapp-float:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
         }
 
         /* FOOTER */
         footer {
             background-color: #010204;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.15);
         }
 
         footer p {
             color: var(--text-muted);
             font-size: 0.85rem;
-            letter-spacing: 1px;
         }
 
         footer p.legal {
-            margin-top: 12px;
+            margin-top: 10px;
             color: #4b5563;
+        }
+
+        /* MEDIA QUERIES RESPONSIVAS */
+        @media (max-width: 600px) {
+            .whatsapp-float span {
+                display: none;
+            }
+            .whatsapp-float {
+                padding: 14px;
+                border-radius: 50%;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- MODAL BANNER +18 -->
+    <!-- BARRA SUPERIOR CON SELECCIÓN DE IDIOMA Y BANDERAS -->
+    <div class="top-lang-bar">
+        <a href="#" class="brand-mini-logo">
+            ✨ VII CONTINENTES
+        </a>
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="setLanguage('es')">🇲🇽 🇨🇴 ES</button>
+            <button class="lang-btn" onclick="setLanguage('en')">🇺🇸 EN</button>
+        </div>
+    </div>
+
+    <!-- MODAL VERIFICACIÓN DE EDAD (+18) -->
     <div id="age-gate">
         <div class="age-card">
-            <!-- LOGOTIPO VECTORIAL CON BRÚJULAS EN MODAL -->
             <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="gateGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -661,23 +706,22 @@
                 <rect x="25" y="80" width="250" height="36" rx="8" fill="#030406" stroke="url(#gateGold)" stroke-width="2"/>
                 <text x="150" y="104" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="url(#gateGold)" letter-spacing="5" text-anchor="middle">CONTINENTES</text>
             </svg>
-            <h2>Verificación de Edad</h2>
-            <p>Bienvenido a Tequila VII Continentes. Debes tener al menos 18 años de edad para ingresar a este sitio y conocer nuestro legado.</p>
+            <h2 id="age-title">Verificación de Edad</h2>
+            <p id="age-desc">Bienvenido a Tequila VII Continentes. Debes tener al menos 18 años de edad para ingresar a este sitio y conocer nuestro legado.</p>
             <div class="age-buttons">
-                <button class="btn-age-yes" onclick="acceptAge()">Soy Mayor de 18 Años</button>
-                <button class="btn-age-no" onclick="rejectAge()">Salir</button>
+                <button class="btn-age-yes" id="btn-yes" onclick="acceptAge()">Soy Mayor de 18 Años</button>
+                <button class="btn-age-no" id="btn-no" onclick="rejectAge()">Salir</button>
             </div>
         </div>
     </div>
 
-    <!-- HERO SECTION CON FOTO DE TIERRA ROJA Y AGAVE AZUL -->
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="origin-badge">
-            <span>🇲🇽 Hecho en Jalisco, México</span>
+            <span id="hero-badge">🇲🇽 Hecho en Jalisco, México</span>
         </div>
         
         <div class="logo-container">
-            <!-- LOGO OFICIAL SVG CON BRÚJULAS -->
             <svg viewBox="0 0 300 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -705,12 +749,12 @@
             </svg>
         </div>
 
-        <h1>De México para el Mundo</h1>
-        <p class="tagline">El Legado Líquido de Nuestros Ancestros • 100% Agave Azul</p>
+        <h1 id="hero-title">De México para el Mundo</h1>
+        <p class="tagline" id="hero-tagline">El Legado Líquido de Nuestros Ancestros • 100% Agave Azul</p>
 
         <div class="hero-actions">
-            <a href="https://viicontinentes.store" target="_blank" class="btn-gold">Visitar Boutique Oficial</a>
-            <a href="#coleccion" class="btn-outline">Ver Colección</a>
+            <a href="store.html" class="btn-gold" id="btn-store">Visitar Boutique Oficial 🛍️</a>
+            <a href="#coleccion" class="btn-outline" id="btn-collection">Ver Colección</a>
         </div>
     </header>
 
@@ -719,11 +763,15 @@
         <div class="expansion-container">
             <div class="country-card">
                 <h3>🇲🇽 Sede de Origen</h3>
-                <p>Jalisco, México — Producción ancestral y destilación tradicional de origen.</p>
+                <p id="exp-mex">Jalisco, México — Producción ancestral y destilación tradicional de origen.</p>
             </div>
             <div class="country-card" style="border-color: var(--gold);">
                 <h3>🇨🇴 Expansión Internacional</h3>
-                <p><strong>¡Muy Pronto en Colombia!</strong> Próximo lanzamiento exclusivo para el mercado sudamericano.</p>
+                <p id="exp-col"><strong>¡Muy Pronto en Colombia!</strong> Próximo lanzamiento exclusivo para el mercado sudamericano.</p>
+            </div>
+            <div class="country-card">
+                <h3>🇺🇸 Distribución Norteamérica</h3>
+                <p id="exp-usa">Estados Unidos — Gestión estratégica y alianzas corporativas internacionales.</p>
             </div>
         </div>
     </section>
@@ -731,178 +779,233 @@
     <!-- HISTORIA Y VALOR AGREGADO -->
     <section class="story">
         <div class="story-text">
-            <h2>Labrado con Honor en la Tierra Roja de Jalisco</h2>
-            <p>Mucho antes de que el mundo conociera el verdadero valor del agave selecto, nuestros abuelos ya caminaban bajo el sol inclemente de los valles jaliscienses. Con manos callosas por el azadón y la coa, labraron surco a surco esta tierra volcánica, sembrando no solo plantas, sino una promesa inquebrantable de honor y tradición.</p>
-            <p>Cada piña de agave azul Tequilana Weber madura paciente durante 7 a 9 años, absorbiendo los minerales esenciales que otorgan a <strong>VII Continentes</strong> su carácter único, profundo e inconfundible.</p>
+            <h2 id="story-title">Labrado con Honor en la Tierra Roja de Jalisco 🇲🇽</h2>
+            <p id="story-p1">Mucho antes de que el mundo conociera el verdadero valor del agave selecto, nuestros abuelos ya caminaban bajo el sol inclemente de los valles jaliscienses. Con manos callosas por el azadón y la coa, labraron surco a surco esta tierra volcánica, sembrando no solo plantas, sino una promesa inquebrantable de honor y tradición.</p>
+            <p id="story-p2">Cada piña de agave azul Tequilana Weber madura paciente durante 7 a 9 años, absorbiendo los minerales esenciales que otorgan a VII Continentes su carácter único, profundo e inconfundible.</p>
 
             <div class="value-grid">
                 <div class="value-item">
-                    <h4>Agave Selecto</h4>
-                    <p>100% Agave Azul Weber cosechado a mano por jimadores de herencia.</p>
+                    <h4 id="val-1-t">Agave Selecto</h4>
+                    <p id="val-1-d">100% Agave Azul Weber cosecha a mano.</p>
                 </div>
                 <div class="value-item">
-                    <h4>Cocción Lenta</h4>
-                    <p>Hornos de mampostería tradicional para extraer mieles puras.</p>
+                    <h4 id="val-2-t">Cocción Lenta</h4>
+                    <p id="val-2-d">Hornos de mampostería tradicional.</p>
                 </div>
                 <div class="value-item">
-                    <h4>Destilación en Cobre</h4>
-                    <p>Alambiques pequeños para preservar los aceites esenciales.</p>
+                    <h4 id="val-3-t">Destilación Cobre</h4>
+                    <p id="val-3-d">Alambiques pequeños de cobre puro.</p>
                 </div>
                 <div class="value-item">
-                    <h4>Añejamiento Noble</h4>
-                    <p>Maduración reposada en barricas de roble seleccionadas.</p>
+                    <h4 id="val-4-t">Añejamiento Noble</h4>
+                    <p id="val-4-d">Barricas de roble seleccionadas.</p>
                 </div>
             </div>
         </div>
         <div class="story-img-container">
-            <!-- FOTO AUTÉNTICA DE CULTIVOS EN TIERRA ROJA -->
-            <img src="https://thumbs.dreamstime.com/b/vista-de-un-campo-azul-del-agavo-121961532.jpg" alt="Campos de Agave Azul Weber en la Tierra Roja de Jalisco" loading="lazy">
+            <img src="https://thumbs.dreamstime.com/b/vista-de-un-campo-azul-del-agavo-121961532.jpg" alt="Campos de Agave Azul Weber en la Tierra Roja de Jalisco 🇲🇽" loading="lazy">
         </div>
     </section>
 
-    <!-- CATÁLOGO DE TRES PRESENTACIONES -->
+    <!-- CATÁLOGO DE PRESENTACIONES CON IMÁGENES REALES -->
     <section class="catalog" id="coleccion">
-        <h2 class="section-title">Nuestras Tres Expresiones</h2>
+        <h2 class="section-title" id="cat-title">Nuestras Tres Expresiones</h2>
         
         <div class="grid-products">
-            <!-- 1. BLANCO -->
+            <!-- 1. BLANCO (7continentes_1) -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_6067208725409281959.Webp" alt="Tequila VII Continentes Blanco" loading="lazy">
+                    <img src="7continentes_1" alt="Tequila VII Continentes Blanco 🇲🇽" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
                         <div class="product-meta">40% ALC. VOL. • 750 ML • 100% AGAVE AZUL</div>
                         <h3>Blanco</h3>
-                        <p>Cristalino, directo y vibrante. Captura la frescura de los campos con notas de agave cocido, cítricos silvestres y un toque herbal puro.</p>
+                        <p id="p1-desc">Cristalino, directo y vibrante. Captura la frescura de los campos con notas de agave cocido, cítricos silvestres y un toque herbal puro.</p>
                     </div>
-                    <a href="https://viicontinentes.store" target="_blank" class="btn-buy">Comprar en Tienda</a>
+                    <a href="store.html" class="btn-buy" id="btn-buy-1">Comprar en Tienda 🛍️</a>
                 </div>
             </article>
 
-            <!-- 2. REPOSADO -->
+            <!-- 2. REPOSADO (7continentes_2) -->
             <article class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_4916526226724297730.webp" alt="Tequila VII Continentes Reposado" loading="lazy">
+                    <img src="7continentes_2" alt="Tequila VII Continentes Reposado 🇲🇽" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
                         <div class="product-meta">40% ALC. VOL. • 750 ML • 100% AGAVE AZUL</div>
                         <h3>Reposado</h3>
-                        <p>Madurado con paciencia en barricas de roble blanco. Un balance suave entre la vainilla, el roble tostado y la fuerza original del agave.</p>
+                        <p id="p2-desc">Madurado con paciencia en barricas de roble blanco. Un balance suave entre la vainilla, el roble tostado y la fuerza original del agave.</p>
                     </div>
-                    <a href="https://viicontinentes.store" target="_blank" class="btn-buy">Comprar en Tienda</a>
+                    <a href="store.html" class="btn-buy" id="btn-buy-2">Comprar en Tienda 🛍️</a>
                 </div>
             </article>
 
-            <!-- 3. AÑEJO (OUT OF STOCK) -->
+            <!-- 3. AÑEJO (7continentes_3) - OUT OF STOCK -->
             <article class="product-card out-of-stock">
                 <span class="badge-out-of-stock">Out of Stock</span>
                 <div class="product-img-wrapper">
-                    <img src="watermarked_img_7456770876194698471.Webp" alt="Tequila VII Continentes Añejo - Agotado" loading="lazy">
+                    <img src="7continentes_3" alt="Tequila VII Continentes Añejo - Agotado" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div>
                         <div class="product-meta" style="color: #fca5a5;">40% ALC. VOL. • 750 ML • EDICIÓN RESERVA ESPECIAL</div>
-                        <h3 style="opacity: 0.8;">Añejo</h3>
-                        <p>Añejado por más de 12 meses. Notas profundas de chocolate amargo, frutos secos y madera noble.<br><br><em>"Tierra, fuego, madera y tiempo transforman con majestuosa sabiduría al agave, convirtiéndolo en añeja herencia."</em></p>
+                        <h3 style="opacity: 0.85;">Añejo</h3>
+                        <p id="p3-desc">Añejado por más de 12 meses. Notas profundas de chocolate amargo, frutos secos y madera noble.<br><br><em>"Tierra, fuego, madera y tiempo transforman con majestuosa sabiduría al agave, convirtiéndolo en añeja herencia."</em></p>
                     </div>
-                    <span class="btn-disabled">Agotado Temporalmente</span>
+                    <span class="btn-disabled" id="btn-out">Agotado Temporalmente</span>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- MÉTODOS Y PASARELAS DE PAGO SEGUROS -->
-    <section class="payment-gateways">
-        <h4>Pagos Internacionales Seguros en viicontinentes.store</h4>
-        <div class="payment-icons">
-            <span class="pay-badge">Mercado Pago</span>
-            <span class="pay-badge">Stripe</span>
-            <span class="pay-badge">PayPal</span>
-            <span class="pay-badge">Visa</span>
-            <span class="pay-badge">Mastercard</span>
-            <span class="pay-badge">American Express</span>
-        </div>
-    </section>
-
-    <!-- DIRECTIVA CORPORATIVA Y CONTACTO DIRECTO -->
+    <!-- DIRECTIVA CORPORATIVA (SIN CÓDIGOS QR) -->
     <section class="directors">
-        <h2 class="section-title">Directiva Corporativa</h2>
+        <h2 class="section-title" id="dir-title">Directiva Corporativa</h2>
         
         <div class="directors-grid">
             <!-- GLADYS YOLANDA ARDILA -->
             <div class="director-card">
-                <div>
-                    <!-- LOGO SVG EN TARJETA -->
-                    <svg viewBox="0 0 300 100" style="width: 150px; height: auto; margin-bottom: 15px;">
-                        <path d="M 105 10 L 125 65 L 137 65 L 119 10 Z" fill="#d4af37"/>
-                        <rect x="141" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
-                        <rect x="155" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
-                        <rect x="30" y="70" width="240" height="25" rx="5" fill="#030406" stroke="#d4af37" stroke-width="1.5"/>
-                        <text x="150" y="87" font-family="sans-serif" font-size="12" font-weight="900" fill="#d4af37" letter-spacing="4" text-anchor="middle">CONTINENTES</text>
-                    </svg>
+                <svg viewBox="0 0 300 100" style="width: 140px; height: auto; margin-bottom: 15px;">
+                    <path d="M 105 10 L 125 65 L 137 65 L 119 10 Z" fill="#d4af37"/>
+                    <rect x="141" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
+                    <rect x="155" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
+                    <rect x="30" y="70" width="240" height="25" rx="5" fill="#030406" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="150" y="87" font-family="sans-serif" font-size="12" font-weight="900" fill="#d4af37" letter-spacing="4" text-anchor="middle">CONTINENTES</text>
+                </svg>
 
-                    <h3>Gladys Yolanda Ardila</h3>
-                    <p class="director-title">General Manager</p>
-                    <p class="director-area">Executive Management · Corporate Governance</p>
+                <h3>Gladys Yolanda Ardila</h3>
+                <p class="director-title">General Manager</p>
+                <p class="director-area">Executive Management · Corporate Governance</p>
 
-                    <div class="contact-info">
-                        <a href="tel:+12815091131">📞 +1 281-509-1131</a>
-                        <a href="mailto:gerencia@viicontinentes.com">✉️ gerencia@viicontinentes.com</a>
-                    </div>
-                </div>
-
-                <div class="qr-wrapper">
-                    <img src="1000363788.jpg" alt="Código QR Contacto Corporativo Gladys Yolanda Ardila">
+                <div class="contact-info">
+                    <a href="tel:+12815091131">📞 +1 281-509-1131 🇺🇸</a>
+                    <a href="mailto:gerencia@viicontinentes.com">✉️ gerencia@viicontinentes.com</a>
                 </div>
             </div>
 
             <!-- LINA MARÍA BÁEZ ARDILA -->
             <div class="director-card">
-                <div>
-                    <!-- LOGO SVG EN TARJETA -->
-                    <svg viewBox="0 0 300 100" style="width: 150px; height: auto; margin-bottom: 15px;">
-                        <path d="M 105 10 L 125 65 L 137 65 L 119 10 Z" fill="#d4af37"/>
-                        <rect x="141" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
-                        <rect x="155" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
-                        <rect x="30" y="70" width="240" height="25" rx="5" fill="#030406" stroke="#d4af37" stroke-width="1.5"/>
-                        <text x="150" y="87" font-family="sans-serif" font-size="12" font-weight="900" fill="#d4af37" letter-spacing="4" text-anchor="middle">CONTINENTES</text>
-                    </svg>
+                <svg viewBox="0 0 300 100" style="width: 140px; height: auto; margin-bottom: 15px;">
+                    <path d="M 105 10 L 125 65 L 137 65 L 119 10 Z" fill="#d4af37"/>
+                    <rect x="141" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
+                    <rect x="155" y="10" width="10" height="55" rx="2" fill="#d4af37"/>
+                    <rect x="30" y="70" width="240" height="25" rx="5" fill="#030406" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="150" y="87" font-family="sans-serif" font-size="12" font-weight="900" fill="#d4af37" letter-spacing="4" text-anchor="middle">CONTINENTES</text>
+                </svg>
 
-                    <h3>Lina María Báez Ardila</h3>
-                    <p class="director-title">Director of Strategic Initiatives & Partnerships</p>
-                    <p class="director-area">Strategic Initiatives · Business Development</p>
+                <h3>Lina María Báez Ardila</h3>
+                <p class="director-title">Director of Strategic Initiatives & Partnerships</p>
+                <p class="director-area">Strategic Initiatives · Business Development</p>
 
-                    <div class="contact-info">
-                        <a href="tel:+18323326049">📞 +1 832-332-6049</a>
-                        <a href="mailto:gerencia@viicontinentes.com">✉️ gerencia@viicontinentes.com</a>
-                    </div>
-                </div>
-
-                <div class="qr-wrapper">
-                    <img src="1000363788.jpg" alt="Código QR Contacto Corporativo Lina María Báez Ardila">
+                <div class="contact-info">
+                    <a href="tel:+18323326049">📞 +1 832-332-6049 🇺🇸</a>
+                    <a href="mailto:gerencia@viicontinentes.com">✉️ gerencia@viicontinentes.com</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- BOTÓN FLOTANTE AMIGABLE DE WHATSAPP CON MENSAJE SOLICITADO -->
+    <a href="https://api.whatsapp.com/send?phone=12815091131&text=Hola%2C%20Quiero%20Mas%20Informaci%C3%B3n%20delTequila%20VII%20Continentes." target="_blank" class="whatsapp-float" aria-label="Contacto por WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.762.459 3.48 1.332 5.002l-1.416 5.168 5.291-1.387c1.472.802 3.136 1.225 4.78 1.226h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.038-5.178-2.924-7.062a9.923 9.923 0 0 0-7.066-2.947zm0 1.62c4.614 0 8.369 3.753 8.37 8.363 0 2.235-.87 4.336-2.45 5.914a8.312 8.312 0 0 1-5.916 2.454h-.003c-1.42 0-2.822-.38-4.053-1.102l-.29-.17-3.01.789.803-2.93-.19-.302a8.297 8.297 0 0 1-1.272-4.382c0-4.61 3.755-8.364 8.371-8.364zm4.588 11.53c-.253-.127-1.493-.738-1.724-.822-.232-.085-.401-.127-.571.127-.17.254-.656.822-.805.992-.149.17-.297.19-.55.064-.253-.127-1.07-.395-2.038-1.258-.753-.67-1.261-1.499-1.409-1.753-.148-.254-.016-.391.111-.517.115-.114.254-.297.381-.445.127-.149.17-.254.254-.423.085-.17.043-.317-.021-.444-.064-.127-.571-1.376-.783-1.884-.207-.496-.418-.429-.571-.437-.147-.008-.317-.008-.487-.008-.17 0-.445.064-.678.317-.233.254-.889.868-.889 2.117 0 1.25.91 2.457 1.037 2.626.127.17 1.792 2.737 4.342 3.839.606.262 1.08.419 1.45.536.609.194 1.164.167 1.602.101.488-.073 1.493-.61 1.705-1.2 0.212-.592.212-1.1.149-1.2-.064-.101-.233-.163-.486-.29z"/>
+        </svg>
+        <span>Contacto WhatsApp</span>
+    </a>
+
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Tequila VII Continentes Colombia S.A.S. Todos los derechos reservados.</p>
-        <p style="margin-top: 8px; color: var(--gold-light); font-size: 0.9rem;">De México para el Mundo 🇲🇽 🌎 🇨🇴</p>
+        <p style="margin-top: 8px; color: var(--gold-light); font-size: 0.9rem;">De México 🇲🇽 para el Mundo 🌎 • Colombia 🇨🇴 • USA 🇺🇸</p>
         <p class="legal">El consumo de alcohol es perjudicial para la salud. Prohíbase el expendio a menores de edad (+18).</p>
     </footer>
 
-    <!-- SCRIPT DE VERIFICACIÓN DE EDAD -->
+    <!-- SCRIPT MULTI-IDIOMA Y VERIFICACIÓN DE EDAD -->
     <script>
+        const translations = {
+            es: {
+                ageTitle: "Verificación de Edad",
+                ageDesc: "Bienvenido a Tequila VII Continentes. Debes tener al menos 18 años de edad para ingresar a este sitio y conocer nuestro legado.",
+                btnYes: "Soy Mayor de 18 Años",
+                btnNo: "Salir",
+                heroBadge: "🇲🇽 Hecho en Jalisco, México",
+                heroTitle: "De México para el Mundo",
+                heroTagline: "El Legado Líquido de Nuestros Ancestros • 100% Agave Azul",
+                btnStore: "Visitar Boutique Oficial 🛍️",
+                btnCollection: "Ver Colección",
+                expMex: "Jalisco, México — Producción ancestral y destilación tradicional de origen.",
+                expCol: "¡Muy Pronto en Colombia! Próximo lanzamiento exclusivo para el mercado sudamericano.",
+                expUsa: "Estados Unidos — Gestión estratégica y alianzas corporativas internacionales.",
+                storyTitle: "Labrado con Honor en la Tierra Roja de Jalisco 🇲🇽",
+                storyP1: "Mucho antes de que el mundo conociera el verdadero valor del agave selecto, nuestros abuelos ya caminaban bajo el sol inclemente de los valles jaliscienses. Con manos callosas por el azadón y la coa, labraron surco a surco esta tierra volcánica, sembrando no solo plantas, sino una promesa inquebrantable de honor y tradición.",
+                storyP2: "Cada piña de agave azul Tequilana Weber madura paciente durante 7 a 9 años, absorbiendo los minerales esenciales que otorgan a VII Continentes su carácter único, profundo e inconfundible.",
+                catTitle: "Nuestras Tres Expresiones",
+                btnBuy1: "Comprar en Tienda 🛍️",
+                btnBuy2: "Comprar en Tienda 🛍️",
+                btnOut: "Agotado Temporalmente",
+                dirTitle: "Directiva Corporativa"
+            },
+            en: {
+                ageTitle: "Age Verification",
+                ageDesc: "Welcome to Tequila VII Continentes. You must be at least 18 years old to enter this site and discover our legacy.",
+                btnYes: "I am 18 or Older",
+                btnNo: "Exit",
+                heroBadge: "🇲🇽 Crafted in Jalisco, Mexico",
+                heroTitle: "From Mexico to the World",
+                heroTagline: "The Liquid Legacy of Our Ancestors • 100% Blue Agave",
+                btnStore: "Visit Official Boutique 🛍️",
+                btnCollection: "View Collection",
+                expMex: "Jalisco, Mexico — Ancestral production and traditional origin distillation.",
+                expCol: "Coming Soon to Colombia! Exclusive upcoming launch for the South American market.",
+                expUsa: "United States — Strategic management and international corporate partnerships.",
+                storyTitle: "Carved with Honor in Jalisco's Red Soil 🇲🇽",
+                storyP1: "Long before the world recognized the true value of select agave, our grandfathers walked under the relentless sun of the Jalisco valleys. With calloused hands, they tilled this volcanic earth row by row, planting not just crops, but an unbroken promise of honor and tradition.",
+                storyP2: "Each Blue Weber Agave heart matures patiently for 7 to 9 years, absorbing essential minerals that endow VII Continentes with its unique, deep, and unmistakable character.",
+                catTitle: "Our Three Expressions",
+                btnBuy1: "Buy in Store 🛍️",
+                btnBuy2: "Buy in Store 🛍️",
+                btnOut: "Temporarily Out of Stock",
+                dirTitle: "Corporate Leadership"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if(lang === 'es') document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            if(lang === 'en') document.querySelectorAll('.lang-btn')[1].classList.add('active');
+
+            const t = translations[lang];
+            document.getElementById('age-title').textContent = t.ageTitle;
+            document.getElementById('age-desc').textContent = t.ageDesc;
+            document.getElementById('btn-yes').textContent = t.btnYes;
+            document.getElementById('btn-no').textContent = t.btnNo;
+            document.getElementById('hero-badge').textContent = t.heroBadge;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-tagline').textContent = t.heroTagline;
+            document.getElementById('btn-store').textContent = t.btnStore;
+            document.getElementById('btn-collection').textContent = t.btnCollection;
+            document.getElementById('exp-mex').textContent = t.expMex;
+            document.getElementById('exp-col').textContent = t.expCol;
+            document.getElementById('exp-usa').textContent = t.expUsa;
+            document.getElementById('story-title').textContent = t.storyTitle;
+            document.getElementById('story-p1').textContent = t.storyP1;
+            document.getElementById('story-p2').textContent = t.storyP2;
+            document.getElementById('cat-title').textContent = t.catTitle;
+            document.getElementById('btn-buy-1').textContent = t.btnBuy1;
+            document.getElementById('btn-buy-2').textContent = t.btnBuy2;
+            document.getElementById('btn-out').textContent = t.btnOut;
+            document.getElementById('dir-title').textContent = t.dirTitle;
+        }
+
         function acceptAge() {
             localStorage.setItem('vii_age_verified', 'true');
             document.getElementById('age-gate').classList.add('hidden');
         }
 
         function rejectAge() {
-            alert('Debes ser mayor de edad para ingresar a este sitio.');
+            alert('Debes ser mayor de edad para ingresar a este sitio / You must be of legal age to enter.');
             window.location.href = 'https://www.google.com';
         }
 
